@@ -15,29 +15,32 @@ This project focuses on depth perception in retinal microsurgery. Participants w
 ### 1. Software & Environment Setup
 Please ensure you have a working development environment on your machine on Monday.
 - Python: Install Python 3.10 or higher.
-- VS Code: Install VS Code.
+- VS Code: Install [VS Code](https://code.visualstudio.com/).
 - Clone the Project Repo: [Retinal Microsurgery Project Repo](https://github.com/AdrianaNam/retinal-microsurgery-project.git)
 
 ### 2. Core Concepts (Recommended Reading)
 To hit the ground running, please review these key concepts:
 
-Stereo Vision Basics: Understand the concept of "Epipolar Geometry."
-- Stereo Vision and Depth Estimation Tutorial
-Camera Calibration: Why do we calibrate?
-- Camera Calibration with OpenCV
-Surgical Context: Learn how depth perception aids microsurgeons.
-- Search Term: "Computer-assisted retinal surgery depth perception"
+- **Stereo Vision Basics**: Understand the concept of "Epipolar Geometry."
+Read [Stereo Vision and Depth Estimation Tutorial](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_calib3d/py_depthmap/py_depthmap.html)
+
+- **Camera Calibration**: Why do we calibrate?
+Read [Camera Calibration with OpenCV](https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html)
+
+- **Surgical Context**: Learn how depth perception aids microsurgeons.
+Search Term: "Computer-assisted retinal surgery depth perception"
 
 ### 3. Tutorial Material for the Workshop
 
-We will be using these during the sessions. Feel free to browse them:
--  OpenCV Depth Maps: Stereo Matching with SGBM
-- Rectification: Learn how to align images before calculating disparity.
+We will likely be using these during the week:
+- **OpenCV Depth Maps**: [OpenCV Tutorials](https://learnopencv.com/?s=stereo+depth) , [Stereo Matching Geeks4Geeks Tutorial](https://www.geeksforgeeks.org/python/python-opencv-depth-map-from-stereo-images/), [Video Tutorial](https://www.youtube.com/watch?v=gffZ3S9pBUE)
+
+- **Hands-on Dataset**: We will be working with stereo video feeds from the Sony MCC-3000MT system. You will have to learn how to perform **Rectification** to align the Left and Right images before calculating disparity.
 
 ### Workshop Schedule
 - Day 1: Understanding the hardware (Media Express capture) and data extraction.
-- Days 1 & 2 (Afternoon): Camera calibration using the lab's grid and data collection.
-- Day 3: Applying Semi-Global Block Matching (SGBM) to create depth maps.
+- Days 1 & 2 (Afternoon): Camera calibration using the lab's grid and data collection. You will need this to compute the `camera_matrix` and `dist_coeffs` required for depth estimation.
+- Day 3: Applying Semi-Global Block Matching (SGBM) or other(s) to create depth maps.
 - Days 4 & 5: Finalizing the pipeline, analysing results, and preparing your final presentation.
 
 
