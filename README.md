@@ -16,7 +16,7 @@ This project focuses on depth perception in retinal microsurgery. Participants w
 Please ensure you have a working development environment on your machine on Monday.
 - Python: Install Python 3.10 or higher.
 - VS Code: Install VS Code.
-- Clone the Project Repo: [Link ]
+- Clone the Project Repo: [Retinal Microsurgery Project Repo](https://github.com/AdrianaNam/retinal-microsurgery-project.git)
 
 ### 2. Core Concepts (Recommended Reading)
 To hit the ground running, please review these key concepts:
@@ -44,10 +44,11 @@ We will be using these during the sessions. Feel free to browse them:
 ## Getting Started
 ### 1. Environment Setup
 - Install [Python 3.10+](https://www.python.org/) and [VS Code](https://code.visualstudio.com/).
-- Clone this repository: `git clone <url>`
+- Clone this repository: `git clone https://github.com/AdrianaNam/retinal-microsurgery-project.git`
 - Install dependencies:
   ```bash
   pip install numpy opencv-python torch torchvision pyyaml
+
 
 ### 2. Data
 - Use Media Express (configured to 1080i50 3D) to record your surgical trials.
