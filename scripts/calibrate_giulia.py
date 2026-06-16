@@ -94,13 +94,13 @@ def save_frames_single_camera(path, right):
             # save the frame when cooldown reaches 0.
             if cooldown <= 0:
                 if right==1:
-                    savename = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/frames/frames_right_' + str(saved_count) + '.png')
+                    savename = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/summer_school/frames/frames_right_' + str(saved_count) + '.png')
                     cv.imwrite(savename, frame)
                     saved_count += 1
                     cooldown = cooldown_time
 
                 else:
-                    savename = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/frames/frames_left_' + str(saved_count) + '.png')
+                    savename = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/summer_school/frames/frames_left_' + str(saved_count) + '.png')
                     cv.imwrite(savename, frame)
                     saved_count += 1
                     cooldown = cooldown_time
@@ -196,7 +196,7 @@ def save_camera_intrinsics(camera_matrix, distortion_coefs, right):
         if not os.path.exists('camera_parameters'):
             os.mkdir('camera_parameters')
 
-        out_filename = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/camera_parameters/camera_parameters_intrinsics_right.dat')
+        out_filename = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/summer_school/camera_parameters/camera_parameters_intrinsics_right.dat')
         outf = open(out_filename, 'w')
 
         outf.write('intrinsic:\n')
@@ -214,7 +214,7 @@ def save_camera_intrinsics(camera_matrix, distortion_coefs, right):
         if not os.path.exists('camera_parameters'):
             os.mkdir('camera_parameters')
 
-        out_filename = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/camera_parameters/camera_parameters_intrinsics_left.dat')
+        out_filename = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/summer_school/camera_parameters/camera_parameters_intrinsics_left.dat')
         outf = open(out_filename, 'w')
 
         outf.write('intrinsic:\n')
@@ -285,10 +285,10 @@ def save_frames_two_cams(video_path_left, video_path_right):
 
             # save the frame when cooldown reaches 0.
             if cooldown <= 0:
-                savename = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/frames_pair/frames_pair_left_' + str(saved_count) + '.png')
+                savename = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/summer_school/frames_pair/frames_pair_left_' + str(saved_count) + '.png')
                 cv.imwrite(savename, frame0)
 
-                savename = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/frames_pair/frames_pair_right_' + str(saved_count) + '.png')
+                savename = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/summer_school/frames_pair/frames_pair_right_' + str(saved_count) + '.png')
                 cv.imwrite(savename, frame1)
 
                 saved_count += 1
@@ -608,20 +608,20 @@ if __name__ == '__main__':
 
     """Step1. Save calibration frames for single cameras"""
     right=0
-    video_path_left='/Users/Matteo/Desktop/MEDICAL ROBOTICS AND TECHNOLOGIES FOR COMPUTER AIDED SURGERY LABORATORY/PROGETTO/PROGETTOP4/CALIBRAZIONE/user_1_2024-10-09_11-47-22_left.avi'
-    save_frames_single_camera('/Users/Matteo/Desktop/MEDICAL ROBOTICS AND TECHNOLOGIES FOR COMPUTER AIDED SURGERY LABORATORY/PROGETTO/PROGETTOP4/CALIBRAZIONE/user_1_2024-10-09_11-47-22_left.avi', right)  # save frames for camera left (0)
+    video_path_left='/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/Calibration Left.avi'
+    save_frames_single_camera('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/Calibration Left.avi', right)  # save frames for camera left (0)
     right=1
-    video_path_right='/Users/Matteo/Desktop/MEDICAL ROBOTICS AND TECHNOLOGIES FOR COMPUTER AIDED SURGERY LABORATORY/PROGETTO/PROGETTOP4/CALIBRAZIONE/user_1_2024-10-09_11-47-22_right.avi'
-    save_frames_single_camera('/Users/Matteo/Desktop/MEDICAL ROBOTICS AND TECHNOLOGIES FOR COMPUTER AIDED SURGERY LABORATORY/PROGETTO/PROGETTOP4/CALIBRAZIONE/user_1_2024-10-09_11-47-22_right.avi', right)  # save frames for camera right (1)
+    video_path_right='/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/Calibration Right.avi'
+    save_frames_single_camera('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/Calibration Left.avi', right)  # save frames for camera right (1)
 
     """Step2. Obtain camera intrinsic matrices and save them"""
     # left intrinsics
-    images_prefix = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/frames/frames_left_*')
+    images_prefix = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/frames/frames_left_*')
     cmtx0, dist0 = calibrate_camera_for_intrinsic_parameters(images_prefix)
     right=0
     save_camera_intrinsics(cmtx0, dist0, right)  # this will write cmtx and dist to disk
     # right intrinsics
-    images_prefix = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/frames/frames_right_*')
+    images_prefix = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/frames/frames_right_*')
     cmtx1, dist1 = calibrate_camera_for_intrinsic_parameters(images_prefix)
     right=1
     save_camera_intrinsics(cmtx1, dist1, right)  # this will write cmtx and dist to disk
@@ -630,8 +630,8 @@ if __name__ == '__main__':
     save_frames_two_cams(video_path_left, video_path_right)  # save simultaneous frames
 
     """Step4. Use paired calibration pattern frames to obtain camera0 to camera1 rotation and translation"""
-    frames_prefix_c0 = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/frames_pair/frames_pair_left_*')
-    frames_prefix_c1 = os.path.join('/Users/Matteo/PycharmProjects/P4_GMS/frames_pair/frames_pair_right_*')
+    frames_prefix_c0 = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/frames_pair/frames_pair_left_*')
+    frames_prefix_c1 = os.path.join('/Users/giuliagalvan/Library/CloudStorage/OneDrive-KULeuven/frames_pair/frames_pair_right_*')
     R, T = stereo_calibrate(cmtx0, dist0, cmtx1, dist1, frames_prefix_c0, frames_prefix_c1)
 
     """Step5. Save calibration data where camera0 defines the world space origin."""
